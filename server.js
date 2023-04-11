@@ -1,8 +1,8 @@
-import express from 'express'
-import dotenv from 'dotenv'
-import morgan from 'morgan';
-import connectDB from './config/db.js';
-import authRoutes from './routes/authRoutes.js'
+const express = require('express');
+const dotenv = require('dotenv');
+const morgan = require('morgan');
+const connectDB = require('./config/db.js');
+const authRoutes = require('./routes/authRoutes.js');
 
 const app = express();
 

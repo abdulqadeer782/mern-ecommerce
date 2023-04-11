@@ -1,20 +1,24 @@
-import bycrypt from 'bcrypt';
+const bcrypt = require('bcrypt');
 
-export const hashedPassword = async (pass) => {
+const hashedPassword = async (pass) => {
     try {
         const saltRound = 10;
-        const hashedPassword = await bycrypt.hash(pass, saltRound);
+        const hashedPassword = await bcrypt.hash(pass, saltRound);
         return hashedPassword
     } catch (error) {
         console.log(error)
     }
 }
 
-
-export const comparedPassword = async (pass, hashedPassword) => {
+const comparedPassword = async (pass, hashedPassword) => {
     try {
-        return bycrypt.compare(pass, hashedPassword);
+        return bcrypt.compare(pass, hashedPassword);
     } catch (error) {
         console.log(error)
     }
-}   
+}
+
+module.exports = {
+    comparedPassword,
+    hashedPassword
+}
